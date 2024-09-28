@@ -3,12 +3,12 @@ from datetime import datetime
 import os
 import requests
 
-API_KEY = os.environ['API_KEY']
+API_KEY = os.environ['API_KEY_ETHERSCAN']
 
 def handler(event, context):
     address = event['arguments']['address'].lower()
     
-    url = f'https://api.etherscan.io/api?module=account&action=txlist&address={address}&startblock=0&endblock=99999999&sort="asc"&apikey={API_KEY}'
+    url = f'https://api-sepolia.etherscan.io/api?module=account&action=txlist&address={address}&startblock=0&endblock=99999999&sort="asc"&apikey={API_KEY}'
     response = requests.get(url)
 
     if response.status_code != 200:
