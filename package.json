@@ -10,10 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@aws-amplify/cli": "^12.12.6",
-    "@metamask/detect-provider": "^2.0.0",
-    "@metamask/sdk-react-ui": "^0.28.4",
-    "ethers": "^6.13.2",
+    "aws-amplify": "^6.6.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "web3modal": "^1.9.12"
