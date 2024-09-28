@@ -23,5 +23,39 @@
       "service": "AppSync"
     }
   },
-  "auth": {}
+  "auth": {},
+  "function": {
+    "etherscanLambda": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_etherscanLambda_apiKeyEtherscan": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "etherscanLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_etherscanLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "etherscanLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_etherscanLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "etherscanLambda"
+        }
+      ]
+    }
+  }
 }
