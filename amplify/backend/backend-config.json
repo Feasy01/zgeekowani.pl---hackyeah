@@ -1,32 +1,21 @@
 {
   "api": {
     "hackyeah2024fintech": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "hackyeah2024fintechec849757"
-        }
-      ],
+      "dependsOn": [],
       "output": {
         "authConfig": {
           "additionalAuthenticationProviders": [
             {
-              "apiKeyConfig": {
-                "apiKeyExpirationDate": "2024-10-05T15:20:04.209Z",
-                "apiKeyExpirationDays": 7,
-                "description": "test key"
-              },
-              "authenticationType": "API_KEY"
+              "authenticationType": "AWS_IAM"
             }
           ],
           "defaultAuthentication": {
-            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-            "userPoolConfig": {
-              "userPoolId": "authhackyeah2024fintechec849757"
-            }
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2024-10-05T16:59:16.898Z",
+              "apiKeyExpirationDays": 7,
+              "description": "none"
+            },
+            "authenticationType": "API_KEY"
           }
         }
       },
@@ -34,33 +23,5 @@
       "service": "AppSync"
     }
   },
-  "auth": {
-    "hackyeah2024fintechec849757": {
-      "customAuth": false,
-      "dependsOn": [],
-      "frontendAuthConfig": {
-        "mfaConfiguration": "OFF",
-        "mfaTypes": [
-          "SMS"
-        ],
-        "passwordProtectionSettings": {
-          "passwordPolicyCharacters": [],
-          "passwordPolicyMinLength": 8
-        },
-        "signupAttributes": [
-          "EMAIL"
-        ],
-        "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL",
-          "PHONE_NUMBER"
-        ],
-        "verificationMechanisms": [
-          "EMAIL"
-        ]
-      },
-      "providerPlugin": "awscloudformation",
-      "service": "Cognito"
-    }
-  }
+  "auth": {}
 }
