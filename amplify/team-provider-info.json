@@ -14,6 +14,11 @@
     "categories": {
       "api": {
         "hackyeah2024fintech": {}
+      },
+      "function": {
+        "etherscanLambda": {
+          "apiKeyEtherscan": "KPW44J81867CFTKQR8WM5DFQBABIVKNB8K"
+        }
       }
     }
   }

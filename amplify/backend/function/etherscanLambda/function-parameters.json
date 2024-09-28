@@ -1,0 +1,9 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "apiKeyEtherscan",
+      "environmentVariableName": "API_KEY_ETHERSCAN"
+    }
+  ]
+}

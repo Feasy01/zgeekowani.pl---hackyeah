@@ -17,3 +17,8 @@ type Rating @model {
   description: String
 }
 
+type Query
+{
+  etherscanLambda(address: String!): String @function(name: "etherscanLambda-${env}") @auth(rules:[{allow:public, provider:apiKey}])
+}
+
