@@ -1,11 +1,13 @@
 import MetamaskButton from "./MetamaskButton";
-
+import { Button } from "antd";
 export default function Navbar(){
 
     return(
-        <div className="flex w-full h-24 justify-between">
+        <div className="flex justify-between p-8">
             <div>LOGO</div>
-            <div><MetamaskButton/></div>
+            <MetamaskButton/>
+
+
         </div>
     )
 

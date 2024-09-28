@@ -30,27 +30,7 @@ function HomeScreen(props) {
         }
     }
 
-    async function addWalletToDatabase(address) {
-        if (walletAddress)
-            console.log("Searching for wallet: " + walletAddress)
 
-        try {
-            const result = await client.graphql({
-                query: createWallet,
-                variables: {
-                    input: {
-                        id: address
-                    }
-                }
-
-            })
-
-            console.log(result)
-        }
-        catch {
-
-        }
-    }
 
     // 79837291835815236912 // tmp wallet in dynamodb
 
