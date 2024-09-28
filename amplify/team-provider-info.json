@@ -10,6 +10,11 @@
       "StackName": "amplify-hackyeah2024fintech-dev-cf471",
       "StackId": "arn:aws:cloudformation:eu-central-1:203918863329:stack/amplify-hackyeah2024fintech-dev-cf471/877e96a0-7da9-11ef-9ad3-0ad16e605163",
       "AmplifyAppId": "d1a68alppmiu7v"
+    },
+    "categories": {
+      "auth": {
+        "hackyeah2024fintechec849757": {}
+      }
     }
   }
 }
