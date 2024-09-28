@@ -1,0 +1,21 @@
+Authoreum system - documentation
+
+# ------------------------------- User Stories ------------------------------- #
+
+1. Jako klient/odbiorca usługi chcę zweryfikować czy sprzedawca/dostawca jest zaufany. Jego numer portfela wpisuje w interfejsie do wyszukiwarki. Po wyszukiwaniu pokazuje mi się:
+    1. Wiek portfela
+    2. Historia transakcji
+    3. Statystyki transakcji portfela
+    4. Społecznościowy rating portfela
+    5. Nasz rating portfela oraz sugestie dotyczące potencjalnych transakcji z nim przeprowadzanych
+2. Jako klient/odbiorca chce przeprowadzić bezpieczną transakcję ze zweryfikowanym podmiotem. Podmiot musi zostać zarejestrowany w systemie. Weryfikujemy dane podmiotu. Przeprowadzamy transakcje przy użyciu GUI. Dane potwierdzone za pomocą mObywatela w Polsce, a za granicą przelew bankowy albo karta płatnicza (bank nie musi wiedzieć z czym te dane powiązujesz jako serwis, więc bank nie wie że dany ich klient ma taki portfel).
+3. Jako klient/odbiorca chce mieć pewność że przedmiot fizyczny lub usługa którą zamówiłem zostaną dostarczone. W tym celu korzystam z pośrednika w transakcji, któremu przelewam pieniądze, a on je przeleje dalej gdy potwierdzę realizację zamówienia - Escrow. 
+4. Jako dostawca chcę byś rozpoznawalny jako zaufany sprzedawca i budować zaufanie u moich klientów. W tym celu rejestruję się na platformie, na której moi klienci mogą przeprowadzać ze mną transakcję za pomocą kryptowalut w sposób zaufany (nie mam podglądu do danych klientów) oraz wystawiań mi opinie. 
+5. Jako użytkownik chcę wiedzeć jak działa platforma. Z tego powodu korzystam z modułu edukacyjnego platformy.
+
+# ----------------------------- Odbiorcy systemu ----------------------------- #
+- KNF - zwiększa bezpieczeństwo interesariuszy, jeżeli wszyscy sprzedawcy byliby zmuszeni do rejestracji to KNF może weryfikować transakcje. Przy doypoweidniej akcji promocyjnej tylko osoby ze złymi intencjami by nie chciały tam być
+Użytkownik zrejestrowany:
+- Podmiot chcący przyjmować płatności w kryptowalutach
+- Użytkownik korzystający wykorzystujący to jako narzędzie do weryfikacji:
+- Klient chcący zweryfikować wiarygodność
