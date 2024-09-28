@@ -52,7 +52,7 @@ function HomeScreen(props) {
         }
     }
 
-    // 42639485740295748593850385759374 // tmp wallet in dynamodb
+    // 79837291835815236912 // tmp wallet in dynamodb
 
     return (
         <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
