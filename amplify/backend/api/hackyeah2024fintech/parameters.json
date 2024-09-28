@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "hackyeah2024fintech",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authhackyeah2024fintechec849757",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
