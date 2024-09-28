@@ -75,6 +75,8 @@ def handler(event, context):
     print(f"Number of transactions in last 30 days: {num_last_30_days}")
     print(f"Number of unique senders to this address: {num_unique_senders}")
     print(f"Number of unique recipients from this address: {num_unique_recipients}")
+    print(f"Unique senders: {unique_senders}")
+    print(f"Unique recipients: {unique_recipients}")
 
     return {
         "statusCode": 200,
@@ -93,6 +95,8 @@ def handler(event, context):
             "last_tx_time": last_tx_time,
             "num_last_30_days": num_last_30_days,
             "num_unique_senders": num_unique_senders,
-            "num_unique_recipients": num_unique_recipients
+            "num_unique_recipients": num_unique_recipients,
+            "unique_senders": list(unique_senders),
+            "unique_recipients": list(unique_recipients),
         })
     }
