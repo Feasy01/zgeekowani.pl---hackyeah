@@ -34,27 +34,6 @@ function HomeScreen(props) {
         }
     }
 
-    async function addWalletToDatabase(address) {
-        if (walletAddress)
-
-            try {
-                const result = await client.graphql({
-                    query: createWallet,
-                    variables: {
-                        input: {
-                            id: address
-                        }
-                    }
-
-                })
-
-                console.log(result)
-            }
-            catch (e) {
-                console.log("Wallet already exists in database -> " + e);
-            }
-    }
-
     // 79837291835815236912 // tmp wallet in dynamodb
 
     return (
