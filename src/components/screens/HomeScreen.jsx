@@ -3,7 +3,7 @@ import WalletWidget from '../widgets/WalletWidget';
 import { generateClient } from 'aws-amplify/api';
 import { getWallet } from '../../graphql/queries';
 import { createWallet } from '../../graphql/mutations'
-
+import Navbar from '../Navbar';
 const client = generateClient();
 
 function HomeScreen(props) {
@@ -55,7 +55,8 @@ function HomeScreen(props) {
     // 79837291835815236912 // tmp wallet in dynamodb
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+        <div className='w-screen h-screen p-0'>
+            <Navbar />
             <input
                 style={{ textAlign: 'center' }}
                 value={walletAddress}

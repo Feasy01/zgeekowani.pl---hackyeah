@@ -40,6 +40,22 @@
           "resourceName": "etherscanLambda"
         }
       ]
+    },
+    "AMPLIFY_function_etherscanLambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "etherscanLambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_etherscanLambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "etherscanLambda"
+        }
+      ]
     }
   }
 }

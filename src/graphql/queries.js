@@ -1,6 +1,11 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const etherscanLambda = /* GraphQL */ `
+  query EtherscanLambda($address: String!) {
+    etherscanLambda(address: $address)
+  }
+`;
 export const getWallet = /* GraphQL */ `
   query GetWallet($id: ID!) {
     getWallet(id: $id) {
