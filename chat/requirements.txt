@@ -1,0 +1,8 @@
+langchain
+langserve[all]
+faiss-cpu
+langchain-community
+langchain-cli
+langchain-ollama
+langchain-huggingface
+fastapi

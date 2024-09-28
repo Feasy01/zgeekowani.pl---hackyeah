@@ -18,7 +18,7 @@
       "function": {
         "etherscanLambda": {
           "deploymentBucketName": "amplify-hackyeah2024fintech-dev-cf471-deployment",
-          "s3Key": "amplify-builds/etherscanLambda-53387866476c4c424b62-build.zip"
+          "s3Key": "amplify-builds/etherscanLambda-53395652506339733966-build.zip",
           "apiKeyEtherscan": "KPW44J81867CFTKQR8WM5DFQBABIVKNB8K"
         }
       }
