@@ -14,6 +14,13 @@
     "categories": {
       "api": {
         "hackyeah2024fintech": {}
+      },
+      "function": {
+        "etherscanLambda": {
+          "apiKeyEtherscan": "test",
+          "deploymentBucketName": "amplify-hackyeah2024fintech-dev-cf471-deployment",
+          "s3Key": "amplify-builds/etherscanLambda-53387866476c4c424b62-build.zip"
+        }
       }
     }
   }

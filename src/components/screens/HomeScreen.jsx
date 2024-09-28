@@ -56,7 +56,7 @@ function HomeScreen(props) {
 
     return (
         <div className='w-screen h-screen p-0'>
-            <Navbar/>
+            <Navbar />
             <input
                 style={{ textAlign: 'center' }}
                 value={walletAddress}
