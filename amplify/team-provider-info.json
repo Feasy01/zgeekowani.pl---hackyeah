@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hackyeah2024fintech-dev-cf471-authRole",
+      "UnauthRoleArn": "arn:aws:iam::203918863329:role/amplify-hackyeah2024fintech-dev-cf471-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::203918863329:role/amplify-hackyeah2024fintech-dev-cf471-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-hackyeah2024fintech-dev-cf471-deployment",
+      "UnauthRoleName": "amplify-hackyeah2024fintech-dev-cf471-unauthRole",
+      "StackName": "amplify-hackyeah2024fintech-dev-cf471",
+      "StackId": "arn:aws:cloudformation:eu-central-1:203918863329:stack/amplify-hackyeah2024fintech-dev-cf471/877e96a0-7da9-11ef-9ad3-0ad16e605163",
+      "AmplifyAppId": "d1a68alppmiu7v"
+    }
+  }
+}
