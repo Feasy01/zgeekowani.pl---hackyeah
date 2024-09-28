@@ -4,16 +4,16 @@
     "apiName": "hackyeah2024fintech",
     "serviceName": "AppSync",
     "defaultAuthType": {
-      "mode": "AMAZON_COGNITO_USER_POOLS",
-      "cognitoUserPoolId": "authhackyeah2024fintechec849757"
+      "mode": "API_KEY",
+      "expirationTime": 7,
+      "apiKeyExpirationDate": "2024-10-05T16:59:16.898Z",
+      "keyDescription": "none"
     },
     "additionalAuthTypes": [
       {
-        "mode": "API_KEY",
-        "expirationTime": 7,
-        "apiKeyExpirationDate": "2024-10-05T15:20:04.209Z",
-        "keyDescription": "test key"
+        "mode": "AWS_IAM"
       }
-    ]
+    ],
+    "conflictResolution": {}
   }
 }
