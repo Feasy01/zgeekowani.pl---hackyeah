@@ -14,18 +14,18 @@ def handler(event, context):
     response = json.loads(response)
 
     # if status code != 200
-    if response['status'] != '1':
-        return {
-            "statusCode": 400,
-            'headers': {
-                'Access-Control-Allow-Headers': '*',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET'
-            },
-            "body": json.dumps({
-                "error": response['result']
-            })
-        }
+    # if response['status'] != '1':
+    #     return {
+    #         "statusCode": 400,
+    #         'headers': {
+    #             'Access-Control-Allow-Headers': '*',
+    #             'Access-Control-Allow-Origin': '*',
+    #             'Access-Control-Allow-Methods': 'GET'
+    #         },
+    #         "body": json.dumps({
+    #             "error": response['result']
+    #         })
+    #     }
 
     
     transactions = response['result']
@@ -78,14 +78,7 @@ def handler(event, context):
     print(f"Unique senders: {unique_senders}")
     print(f"Unique recipients: {unique_recipients}")
 
-    return {
-        "statusCode": 200,
-        'headers': {
-            'Access-Control-Allow-Headers': '*',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET'
-        },
-        "body": json.dumps({
+    return json.dumps({
             "address": address,
             "num_transactions": num_transactions,
             "total_value": total_value,
@@ -99,4 +92,3 @@ def handler(event, context):
             "unique_senders": list(unique_senders),
             "unique_recipients": list(unique_recipients),
         })
-    }
