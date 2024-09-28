@@ -1,1 +1,27 @@
-{}
+{
+  "api": {
+    "hackyeah2024fintech": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2024-10-05T16:59:16.898Z",
+              "apiKeyExpirationDays": 7,
+              "description": "none"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "auth": {}
+}

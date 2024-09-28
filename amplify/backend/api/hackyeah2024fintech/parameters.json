@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "hackyeah2024fintech",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2024-09-28T16:59:21.714Z"
+}
