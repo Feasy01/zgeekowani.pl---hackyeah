@@ -16,7 +16,7 @@ export default function AiChat() {
 
     const [callingModel, setCallingModel] = useState(false);
 
-    const ip = 'http://192.168.43.63:8000'
+    const ip = 'http://127.0.0.1:8000'
     const chatUri = "/chat"
 
     async function callModelAPI() {
@@ -37,6 +37,8 @@ export default function AiChat() {
             //     }
             // })
 
+            console.log(userMessage)
+
             const { data } = await axios.post(
                 url,
                 {
@@ -53,7 +55,7 @@ export default function AiChat() {
             const message = {
                 position: 'left',
                 type: 'text',
-                text: response['answer'],
+                text: data['answer'],
                 title: "Bot",
                 className: "bot-message"
             }
@@ -61,6 +63,7 @@ export default function AiChat() {
             // console.log(response);
 
             setMessages([...messages, message]);
+            setUserMessage("");
         }
         catch (e) {
             console.log(e)
@@ -98,7 +101,6 @@ export default function AiChat() {
             className: type
         }
         setMessages([...messages, message]);
-        setUserMessage("")
 
         setCallingModel(true);
     }
