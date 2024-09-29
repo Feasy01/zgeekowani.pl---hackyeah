@@ -1,11 +1,11 @@
-import { useState,useEffect } from "react"
+import { useState, useEffect } from "react"
 import { switchToTestnetNetwork, addWalletToDatabase } from "../utils/walletFunctions"
-import {MetaMaskFox} from "../assets/MetaMask_Fox"
-export default function MetamaskButton(){
-  const [account,setAccount] = useState(null)
-  useEffect(()=>{
+import { MetaMaskFox } from "../assets/MetaMask_Fox"
+export default function MetamaskButton() {
+  const [account, setAccount] = useState(null)
+  useEffect(() => {
     getAccount()
-  },[])
+  }, [])
   async function getAccount() {
     const accounts = await window.ethereum
       .request({ method: "eth_requestAccounts" })
@@ -22,25 +22,28 @@ export default function MetamaskButton(){
     try {
       await addWalletToDatabase(account)
     }
-    catch(err)
-    {
+    catch (err) {
       console.log(err)
     }
 
   }
 
- 
- return (
-   <div className="flex">
-     
- 
- 
-     
-       {account ? <div className="flex items-center rounded-xl bg-gradient-to-br max-w-[200px] from-green-400 to-green-600 border-2 border-green-600 p-2 gap-2"><div><MetaMaskFox width={40} height={40}/></div><div className="truncate">{account}</div></div> : <button
-         onClick={() => getAccount()}
-       >
-         Connect
-       </button> }
-   </div>
- );
+
+  return (
+    <div className="flex" style={{ border: '4px solid #5B7FFF', borderRadius: 30, backroundColor: '#F3F1F1', fontSize: 16 }}>
+      {account ? <div className="flex items-center rounded-xl bg-gradient-to-br max-w-[200px] border-2 p-2 gap-2">
+        <div className="truncate">
+          {account}
+        </div>
+        <div>
+          <MetaMaskFox width={40} height={40} />
+        </div>
+      </div> :
+        <button
+          onClick={() => getAccount()}
+        >
+          Connect
+        </button>}
+    </div>
+  );
 };
