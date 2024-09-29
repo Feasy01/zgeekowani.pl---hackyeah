@@ -4,11 +4,10 @@ import logo from '../assets/logo.png';
 import { TiHome } from "react-icons/ti";
 
 export default function Navbar() {
-
     return (
-        <div className="flex justify-between w-full p-1">
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                <img src={logo} alt="logo" style={{ width: 40, height: 60, padding: '1vw' }} />
+        <div className="flex justify-between w-full p-4">
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }} className="gap-4">
+                <img src={logo} alt="logo" className="w-[40px]"/>
                 <p style={{ fontSize: 24 }}>authoreum</p>
             </div>
 

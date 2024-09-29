@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import RatingsChart from '../RatingsChart';
 import { Doughnut } from 'react-chartjs-2';
 import { Button, Popover,Badge } from 'antd';
+import PaymentSelection from '../PaymentSelection';
 const client = generateClient();
 
 
@@ -75,8 +76,8 @@ function WalletVerification() {
     return (
         <div className='flex flex-col w-full items-center p-8 gap-4'>
             <div  className='w-1/2 flex items-center justify-between bg-white p-2 px-4 border-2 border-secondary_2 rounded-2xl font-alexandria text-gray-500 text-[18px]'><input value={walletAddress} onChange={(e)=>setWalletAddress(e.target.value)} type='text' className='flex focus:outline-none focus:max-w-full flex-grow truncate max-w-[300px]'/> <button className='flex p-4 px-12 text-white rounded-3xl bg-secondary_2 font-alexandria text-[20px] transition ease-in-out duration-500 hover:scale-105 hover:opacity-85' onClick={handleVerify}>verify</button></div>
-            <div className='w-5/6 flex border-2 p-4 px-20 items-center rounded-3xl border-secondary_2 justify-between font-alexandria text-[24px]'>{info?.address}<div className='bg-secondary_2 p-4 text-white rounded-3xl'> KNF VERIFIED</div> </div>
-            <div className='w-5/6 flex gap-4 border-2 p-4 px-20 rounded-3xl border-secondary_2 justify-between font-alexandria text-[24px] flex-grow'>
+            <div className='w-5/6 flex border-2 p-4 px-20 items-center rounded-3xl border-secondary_2 justify-between font-alexandria text-[24px] bg-gray-100'>{info?.address}<div className='bg-secondary_2 p-4 text-white rounded-3xl'> KNF VERIFIED</div> </div>
+            <div className='w-5/6 flex gap-4 border-2 p-4 px-20 rounded-3xl border-secondary_2 justify-between font-alexandria text-[24px] flex-grow bg-gray-100'>
             
             <div className='flex flex-col gap-4'>
             <div className='flex font-[800]'> Details</div> 
@@ -92,12 +93,11 @@ function WalletVerification() {
                 </div>
                 </div>
 
-            <div className='flex flex-grow items-center justify-center'><Doughnut data={data}  /></div>
+            <div className='flex flex-grow items-center justify-center max-h-[400px]'><Doughnut data={data}  /></div>
             </div>
 
 
-             <div className='flex bg-blue-800 p-8 px-16 rounded-3xl font-alexandria text-[24px] font-[600] text-white border-2 bg-gradient-to-br from-gradient_1 via-gradient_2 to-gradient_4 transition duration-500 hover:scale-105 hover:cursor-pointer'>Send ETH</div>
-            
+            <PaymentSelection walletId={walletId}/>
 
         </div>
     )
