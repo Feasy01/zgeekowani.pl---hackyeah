@@ -7,7 +7,7 @@ import HomeScreen from './components/screens/HomeScreen'
 import { BrowserRouter } from 'react-router-dom'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-
+import NormalTransaction from './components/screens/NormalTransaction'
 // import 'react-native-gesture-handler';
 
 // import 'react-native-url-polyfill/auto';
@@ -40,25 +40,28 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <div className='w-screen'>
-        <Navbar />
 
-        <Routes>
+    <div className='w-screen h-screen overflow-hidden'>
+      <BrowserRouter>
+    <Navbar />
+<Routes>
 
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="/wallet/:walletId" element={<WalletVerification />} />
 
-        </Routes>
-
-        <div className='fixed' style={{ bottom: chatPosition, right: 80, transition: 'all 0.5s' }}>
+        <Route path="/" element={<HomeScreen/>} />
+        <Route path="/wallet/:walletId" element={<WalletVerification/>}/>
+         <Route path="/transaction/:walletId" element={<NormalTransaction/>}/>
+      </Routes>
+      {useChat &&
+        <div className='fixed bottom-20 right-10'>
           <AiChat />
         </div>
-        <button onClick={() => toggleChatPosition()} className='fixed bottom-4 right-3 rounded-full' style={{ padding: 10, border: '3px solid #5B7FFF' }}>
-          {useChat ? <IoMdClose size={25} color='#5B7FFF' /> : <AiFillWechat size={25} color='#5B7FFF' />}
-        </button>
-      </div>
+         }
+      <button onClick={() => setUseChat(!useChat)} className='fixed bottom-10 right-10 rounded-full' style={{ padding: 10, border: '3px solid #5B7FFF' }}>
+        {useChat ? <IoMdClose size={30} color='#5B7FFF' /> : <AiFillWechat size={30} color='#5B7FFF' />}
+      </button>
+
     </BrowserRouter>
+    </div>
   )
 }
 
