@@ -3,8 +3,6 @@ import { Button } from "antd";
 import logo from '../assets/logo.png';
 import { TiHome } from "react-icons/ti";
 
-export default function Navbar() {
-
     return (
         <div className="flex justify-between w-full p-1">
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>

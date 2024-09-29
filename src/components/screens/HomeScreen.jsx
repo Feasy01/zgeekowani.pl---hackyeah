@@ -5,6 +5,7 @@ import { getWallet } from '../../graphql/queries';
 import { createWallet } from '../../graphql/mutations'
 import { BarLoader } from 'react-spinners'
 import Navbar from '../Navbar';
+import { Link } from 'react-router-dom';
 const client = generateClient();
 
 function HomeScreen(props) {
@@ -34,9 +35,11 @@ function HomeScreen(props) {
         }
     }
 
+
     // 79837291835815236912 // tmp wallet in dynamodb
 
     return (
+
         <div className='w-screen h-screen p-0' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <Navbar />
             <div className='w-screen' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around', height: '50vh' }}>
@@ -62,16 +65,18 @@ function HomeScreen(props) {
                 </div>
 
                 <div style={{ background: 'white', display: 'flex', flexDirection: 'row', justifyContent: 'center', border: '4px solid #5B7FFF', borderRadius: 10, width: '35vw', height: '5vh', padding: 5 }}>
-                    <input
+                  
+                  <input
                         className='outline-none'
                         style={{ textAlign: 'center', color: '#565E79', fontSize: 18, width: "30vw", borderTopLeftRadius: 5, borderBottomLeftRadius: 5, borderStyle: 'none' }}
                         value={walletAddress}
                         onChange={e => setWalletAddress(e.target.value)}
                     />
-                    <button style={{ background: '#5B7FFF', color: 'white', fontSize: 20, borderRadius: 25, borderStyle: 'none', width: '10vw', height: '5vh' }} onClick={() => searchWalletInDatabase(walletAddress)}>Verify</button>
+                   <Link to={`/wallet/${walletAddress}`} className=' no-underline text-black font-[600]'>Verify</Link>  
                 </div>
             </div>
         </div >
+
     )
 }
 

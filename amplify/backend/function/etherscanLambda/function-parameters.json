@@ -5,5 +5,12 @@
       "cloudFormationParameterName": "apiKeyEtherscan",
       "environmentVariableName": "API_KEY_ETHERSCAN"
     }
-  ]
+  ],
+  "permissions": {
+    "api": {
+      "hackyeah2024fintech": [
+        "Query"
+      ]
+    }
+  }
 }
