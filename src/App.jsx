@@ -5,7 +5,7 @@ import MetamaskButton from './components/MetamaskButton'
 import HomeScreen from './components/screens/HomeScreen'
 
 import { BrowserRouter } from 'react-router-dom'
-import { Routes,Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 
 // import 'react-native-gesture-handler';
@@ -24,10 +24,9 @@ import AiChat from './components/AiChat'
 Amplify.configure(amplifyconfig);
 
 function App() {
-  const [address,setAddress] = useState(null)
+  const [address, setAddress] = useState(null)
   const [useChat, setUseChat] = useState(false)
 
-<<<<<<< HEAD
   const [chatPosition, setChatPosition] = useState(-800)
 
   const toggleChatPosition = () => {
@@ -41,37 +40,25 @@ function App() {
   }
 
   return (
-    <div className='w-screen overflow-hidden'>
-      <HomeScreen />
+    <BrowserRouter>
+      <div className='w-screen'>
+        <Navbar />
 
-      <div className='fixed' style={{ bottom: chatPosition, right: 80, transition: 'all 0.5s' }}>
-        <AiChat />
-      </div>
-      <button onClick={() => toggleChatPosition()} className='fixed bottom-4 right-3 rounded-full' style={{ padding: 10, border: '3px solid #5B7FFF' }}>
-        {useChat ? <IoMdClose size={25} color='#5B7FFF' /> : <AiFillWechat size={25} color='#5B7FFF' />}
-      </button>
-    </div >
-=======
+        <Routes>
 
-  return (
-      <BrowserRouter>
-    <div className='w-screen'>
-    <Navbar />
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/wallet/:walletId" element={<WalletVerification />} />
 
-      <Routes>
+        </Routes>
 
-        <Route path="/" element={<HomeScreen/>} />
-        <Route path="/wallet/:walletId" element={<WalletVerification/>}/>
-         {useChat &&
-        <div className='fixed bottom-20 right-10'>
+        <div className='fixed' style={{ bottom: chatPosition, right: 80, transition: 'all 0.5s' }}>
           <AiChat />
         </div>
-      <button onClick={() => setUseChat(!useChat)} className='fixed bottom-10 right-10 rounded-full' style={{ padding: 10, border: '3px solid #5B7FFF' }}>
-        {useChat ? <IoMdClose size={30} color='#5B7FFF' /> : <AiFillWechat size={30} color='#5B7FFF' />}
-      </button>
-      </Routes>
+        <button onClick={() => toggleChatPosition()} className='fixed bottom-4 right-3 rounded-full' style={{ padding: 10, border: '3px solid #5B7FFF' }}>
+          {useChat ? <IoMdClose size={25} color='#5B7FFF' /> : <AiFillWechat size={25} color='#5B7FFF' />}
+        </button>
+      </div>
     </BrowserRouter>
->>>>>>> f2074e8547c1373c783f3b32ce81339fcd987a69
   )
 }
 
