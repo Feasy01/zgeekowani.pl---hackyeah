@@ -20,19 +20,29 @@ Amplify.configure(amplifyconfig);
 function App() {
   const [useChat, setUseChat] = useState(false)
 
+  const [chatPosition, setChatPosition] = useState(-800)
+
+  const toggleChatPosition = () => {
+    if (chatPosition === 18) {
+      setChatPosition(-800)
+      setUseChat(false)
+    } else {
+      setChatPosition(18)
+      setUseChat(true)
+    }
+  }
+
   return (
     <div className='w-screen overflow-hidden'>
       <HomeScreen />
 
-      {useChat &&
-        <div className='fixed bottom-20 right-10'>
-          <AiChat />
-        </div>
-      }
-      <button onClick={() => setUseChat(!useChat)} className='fixed bottom-10 right-10 rounded-full' style={{ padding: 10, border: '3px solid #5B7FFF' }}>
-        {useChat ? <IoMdClose size={30} color='#5B7FFF' /> : <AiFillWechat size={30} color='#5B7FFF' />}
+      <div className='fixed' style={{ bottom: chatPosition, right: 80, transition: 'all 0.5s' }}>
+        <AiChat />
+      </div>
+      <button onClick={() => toggleChatPosition()} className='fixed bottom-4 right-3 rounded-full' style={{ padding: 10, border: '3px solid #5B7FFF' }}>
+        {useChat ? <IoMdClose size={25} color='#5B7FFF' /> : <AiFillWechat size={25} color='#5B7FFF' />}
       </button>
-    </div>
+    </div >
   )
 }
 

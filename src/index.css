@@ -17,3 +17,42 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.message-list-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-list-container::-webkit-scrollbar-track {
+  background: none;
+}
+
+.message-list-container::-webkit-scrollbar-thumb {
+  background: #5B7FFF;
+}
+
+.message-list {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #000000;
+}
+
+/*
+.user-message>div {
+  color: #5B7FFF;
+  background-color: #000000;
+  float: right;
+}
+
+
+.rce-mbox-text {
+  text-align: right;
+}
+
+
+.bot-message>div {
+  color: #000000;
+  background-color: #5B7FFF; 
+}*/
