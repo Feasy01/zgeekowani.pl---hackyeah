@@ -19,6 +19,7 @@ import WalletVerification from './components/screens/WalletVerification'
 import { AiFillWechat } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import AiChat from './components/AiChat'
+import BaseTransaction from './components/BaseTransaction'
 
 
 Amplify.configure(amplifyconfig);
@@ -48,6 +49,7 @@ function App() {
 
           <Route path="/" element={<HomeScreen />} />
           <Route path="/wallet/:walletId" element={<WalletVerification />} />
+          <Route path="/baseTransaction/:transactionId" element={<BaseTransaction />} />
 
         </Routes>
 

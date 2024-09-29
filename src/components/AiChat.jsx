@@ -5,6 +5,7 @@ import { Input, Button } from 'antd';
 import { IoSendSharp } from "react-icons/io5";
 import { PulseLoader } from 'react-spinners'
 import { BiFontFamily } from "react-icons/bi";
+import axios, { isCancel, AxiosError } from 'axios';
 
 
 const { TextArea } = Input;
@@ -15,24 +16,74 @@ export default function AiChat() {
 
     const [callingModel, setCallingModel] = useState(false);
 
+    const ip = 'http://192.168.43.63:8000'
+    const chatUri = "/chat"
+
     async function callModelAPI() {
 
         // Logika, call do API -------------------------
+        let response;
 
-        // Wiadomość zwrotna z modelu ------------------
-        const message = {
-            position: 'left',
-            type: 'text',
-            text: "test output...",
-            title: "Bot",
-            className: "bot-message"
+        const url = ip + chatUri
+        console.log(url)
+
+        try {
+            // response = await fetch(url, {
+            //     method: 'POST',
+            //     body: JSON.stringify({ message: "dawdawdwdaw" }),
+            //     mode: 'no-cors',
+            //     headers: {
+            //         'Content-Type': 'application/json: charset=UTF-8'
+            //     }
+            // })
+
+            const { data } = await axios.post(
+                url,
+                {
+                    message: userMessage,
+                    headers: {
+                        "Cache-Control": "no-cache",
+                        "Content-Type": "application/x-www-form-urlencoded",
+                        "Access-Control-Allow-Origin": "*",
+                    },
+
+                },
+            )
+
+            const message = {
+                position: 'left',
+                type: 'text',
+                text: response['answer'],
+                title: "Bot",
+                className: "bot-message"
+            }
+
+            // console.log(response);
+
+            setMessages([...messages, message]);
+        }
+        catch (e) {
+            console.log(e)
         }
 
+
+        // const response = await fetch(ip + '/',
+        //     {
+        //         method: 'GET',
+        //         credentials: 'include'
+        //     }
+        // ).then((data) => {
+        //     console.log(data);
+
+        // })
+
+        // console.log(response);
+
+        // Wiadomość zwrotna z modelu ------------------
+
+
         //Do zmiany jak będzie request do API
-        setTimeout(() => {
-            setCallingModel(false);
-            setMessages([...messages, message]);
-        }, 1000)
+        setCallingModel(false);
     }
 
     function addMessage(text, position, title = null, type) {
@@ -50,8 +101,6 @@ export default function AiChat() {
         setUserMessage("")
 
         setCallingModel(true);
-
-        console.log(results)
     }
 
     useEffect(() => {
