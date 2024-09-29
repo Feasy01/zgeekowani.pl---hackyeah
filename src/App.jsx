@@ -25,12 +25,12 @@ function App() {
       <HomeScreen />
 
       {useChat &&
-        <div className='fixed bottom-40 right-20'>
+        <div className='fixed bottom-20 right-10'>
           <AiChat />
         </div>
       }
-      <button onClick={() => setUseChat(!useChat)} className='fixed bottom-20 right-20 rounded-full' style={{ padding: 15, border: '4px solid #5B7FFF' }}>
-        {useChat ? <IoMdClose size={50} color='#5B7FFF' /> : <AiFillWechat size={50} color='#5B7FFF' />}
+      <button onClick={() => setUseChat(!useChat)} className='fixed bottom-10 right-10 rounded-full' style={{ padding: 10, border: '3px solid #5B7FFF' }}>
+        {useChat ? <IoMdClose size={30} color='#5B7FFF' /> : <AiFillWechat size={30} color='#5B7FFF' />}
       </button>
     </div>
   )

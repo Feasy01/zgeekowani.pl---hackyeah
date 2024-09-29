@@ -20,7 +20,7 @@ export default function AiChat() {
         return input.map((message, index) => {
             return (
                 <Message
-                    style={{}}
+                    style={{ fontSize: 16 }}
                     key={index}
                     model={{
                         message: message.message,
@@ -37,13 +37,13 @@ export default function AiChat() {
     }, [input]);
 
     return (
-        <div style={{ position: "relative", height: "800px", width: "600px", boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.2)", borderRadius: 20 }}>
+        <div style={{ position: "relative", height: "500px", width: "400px", boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.2)", borderRadius: 20 }}>
             <MainContainer style={{ height: "100%", background: "white", borderRadius: 20, padding: 20 }}>
                 <ChatContainer>
                     <MessageList>
                         {messages}
                     </MessageList>
-                    <MessageInput attachDisabled style={{ fontSize: 24 }} placeholder="Type message here" onSend={addMessage} />
+                    <MessageInput attachDisabled style={{ fontSize: 16 }} placeholder="Type message here" onSend={addMessage} />
                 </ChatContainer>
             </MainContainer>
         </div>
