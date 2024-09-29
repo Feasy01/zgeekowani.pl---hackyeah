@@ -28,7 +28,6 @@ export default function MetamaskButton() {
 
   }
 
-
   return (
     <div className="flex" style={{ border: '3px solid #5B7FFF', borderRadius: 30, backroundColor: '#F3F1F1', fontSize: 16 }}>
       {account ? <div className="flex items-center rounded-xl bg-gradient-to-br max-w-[200px] border-2 p-2 gap-2">
