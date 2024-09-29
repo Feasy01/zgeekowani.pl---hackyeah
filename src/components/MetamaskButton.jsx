@@ -36,7 +36,7 @@ export default function MetamaskButton(){
  
  
      
-       {account ? <div className="flex items-center rounded-xl bg-gradient-to-br max-w-[200px] from-green-400 to-green-600 border-2 border-green-600 p-2 gap-2"><div><MetaMaskFox width={40} height={40}/></div><div className="truncate">{account}</div></div> : <button
+       {account ? <div className="flex items-center rounded-xl bg-gradient-to-br max-w-[200px] from-green-400 to-green-600 border-2 border-secondary_2 p-2 gap-2"><div><MetaMaskFox width={40} height={40}/></div><div className="truncate">{account}</div></div> : <button
          onClick={() => getAccount()}
        >
          Connect

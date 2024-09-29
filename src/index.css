@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Alexandria";
+  src: url("./assets/Alexandria-VariableFont_wght.ttf") format("ttf")
+}
+
 #root{
   padding: 0;
   margin: 0;

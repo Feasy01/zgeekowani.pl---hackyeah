@@ -27,7 +27,17 @@
   "function": {
     "etherscanLambda": {
       "build": true,
-      "dependsOn": [],
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "hackyeah2024fintech"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }

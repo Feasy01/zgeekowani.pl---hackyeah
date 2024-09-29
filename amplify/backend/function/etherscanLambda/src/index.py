@@ -1,7 +1,7 @@
 import json
 from datetime import datetime
 import os
-import requests
+import urllib.request
 
 API_KEY = os.environ['API_KEY_ETHERSCAN']
 
@@ -9,21 +9,38 @@ def handler(event, context):
     address = event['arguments']['address'].lower()
     
     url = f'https://api-sepolia.etherscan.io/api?module=account&action=txlist&address={address}&startblock=0&endblock=99999999&sort="asc"&apikey={API_KEY}'
-    response = requests.get(url)
+    response = urllib.request.urlopen(url)
+    response = response.read().decode('utf-8')
+    response = json.loads(response)
 
-    if response.status_code != 200:
-        return {
-            "statusCode": response.status_code,
-            "body": response.text
-        }
+    # if status code != 200
+    # if response['status'] != '1':
+    #     return {
+    #         "statusCode": 400,
+    #         'headers': {
+    #             'Access-Control-Allow-Headers': '*',
+    #             'Access-Control-Allow-Origin': '*',
+    #             'Access-Control-Allow-Methods': 'GET'
+    #         },
+    #         "body": json.dumps({
+    #             "error": response['result']
+    #         })
+    #     }
+
     
-    transactions = response.json()['result']
+    transactions = response['result']
 
     # count the number of transactions
     num_transactions = len(transactions)
 
     # sum the total value of all transactions
-    total_value = sum([int(tx['value']) for tx in transactions])
+    total_value = sum([int(tx['value']) for tx in transactions]) / 10**18
+
+    # sum the total value of received transactions
+    total_received = sum([int(tx['value']) for tx in transactions if tx['to'] == address]) / 10**18
+
+    # sum the total value of sent transactions
+    total_sent = sum([int(tx['value']) for tx in transactions if tx['from'] == address]) / 10**18
 
     # get first and last transaction timestamp and convert to human readable format
     first_tx_timestamp = transactions[0]['timeStamp']
@@ -51,27 +68,27 @@ def handler(event, context):
     print(f"Address: {address}")
     print(f"Number of transactions: {num_transactions}")
     print(f"Total value: {total_value}")
+    print(f"Total received: {total_received}")
+    print(f"Total sent: {total_sent}")
     print(f"First transaction: {first_tx_time}")
     print(f"Last transaction: {last_tx_time}")
     print(f"Number of transactions in last 30 days: {num_last_30_days}")
     print(f"Number of unique senders to this address: {num_unique_senders}")
     print(f"Number of unique recipients from this address: {num_unique_recipients}")
+    print(f"Unique senders: {unique_senders}")
+    print(f"Unique recipients: {unique_recipients}")
 
-    return {
-        "statusCode": 200,
-        'headers': {
-            'Access-Control-Allow-Headers': '*',
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET'
-        },
-        "body": json.dumps({
+    return json.dumps({
             "address": address,
             "num_transactions": num_transactions,
             "total_value": total_value,
-            "first_tx_timestamp": first_tx_timestamp,
-            "last_tx_timestamp": last_tx_timestamp,
+            "total_received": total_received,
+            "total_sent": total_sent,
+            "first_tx_time": first_tx_time,
+            "last_tx_time": last_tx_time,
             "num_last_30_days": num_last_30_days,
             "num_unique_senders": num_unique_senders,
-            "num_unique_recipients": num_unique_recipients
+            "num_unique_recipients": num_unique_recipients,
+            "unique_senders": list(unique_senders),
+            "unique_recipients": list(unique_recipients),
         })
-    }

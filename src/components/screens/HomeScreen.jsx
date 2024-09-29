@@ -4,45 +4,26 @@ import { generateClient } from 'aws-amplify/api';
 import { getWallet } from '../../graphql/queries';
 import { createWallet } from '../../graphql/mutations'
 import Navbar from '../Navbar';
+import { Link } from 'react-router-dom';
 const client = generateClient();
 
-function HomeScreen(props) {
+function HomeScreen() {
     const [walletAddress, setWalletAddress] = useState('');
 
-    async function searchWalletInDatabase(walletAddress) {
-        if (walletAddress) {
-            console.log("Searching for wallet: " + walletAddress);
-
-
-            try {
-                const result = await client.graphql({
-                    query: getWallet,
-                    variables: { id: walletAddress },
-                    authMode: 'apiKey'
-                })
-
-                console.log(result.data);
-            }
-            catch (e) {
-                console.log(e);
-            }
-
-        }
-    }
+    
 
 
 
     // 79837291835815236912 // tmp wallet in dynamodb
 
     return (
-        <div className='w-screen h-screen p-0'>
-            <Navbar />
+        <div className='w-screen p-0'>
             <input
                 style={{ textAlign: 'center' }}
                 value={walletAddress}
                 onChange={e => setWalletAddress(e.target.value)}
             />
-            <button onClick={() => searchWalletInDatabase(walletAddress)}>Search</button>
+            <Link to={`/wallet/${walletAddress}`} className=' no-underline text-black font-[600]'>View Product</Link>
         </div>
     )
 }
